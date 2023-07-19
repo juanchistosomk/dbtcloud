@@ -2,7 +2,7 @@
 with
     customers as (
 
-        select id as customer_id, first_name, last_name
+        select customer_id, first_name, last_name
 
         from {{ref('stg_customers')}}
 
@@ -10,7 +10,7 @@ with
 
     orders as (
 
-        select id as order_id, user_id as customer_id, order_date, status
+        select order_id, customer_id, order_date, status
 
         from {{ref('stg_orders')}}
 
